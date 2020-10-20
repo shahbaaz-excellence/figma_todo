@@ -7,11 +7,9 @@ import Todos from './TodoList';
 function Todo() {
 
     const [todoList, setTodoList] = useState([]);
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
 
     //  add todo
 
@@ -26,9 +24,7 @@ function Todo() {
 
     //  todo status change
 
-
     const todoStatus = (todoId) => {
-        console.log(todoId);
         const newTodos = todoList.map(item => {
             if (item.id == todoId) {
                 return { ...item, status: !item.status }
@@ -39,19 +35,17 @@ function Todo() {
         setTodoList(newTodos);
     }
 
-
     return (
         <div className="maindiv">
             <div className="header">
                 <h1>Today</h1>
-                <span className="addbutton"><MdAddCircleOutline color="rgb(50, 97, 167)" size="25px" onClick={handleShow}/></span>
+                <span className="addbutton"><MdAddCircleOutline className="blue" size="25px" onClick={handleShow} /></span>
             </div>
-
-            <Form 
-            handleClose = {handleClose}
-            handleShow = {handleShow}
-            show={show}
-            addTodo={addTodo}
+            <Form
+                handleClose={handleClose}
+                handleShow={handleShow}
+                show={show}
+                addTodo={addTodo}
             />
             <div className="content">
                 <div>
